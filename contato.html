@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Malbec</title>
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/contato.css" />
+  </head>
+  <body>
+    <header class="header">
+      <img
+        src="public/assets/img/Malbec.png"
+        alt="Malbec"
+        class="logo"
+        style="height: 100px; width: auto"
+      />
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quem-somos.html">Sobre a Empresa</a></li>
+          <li><a href="#">Produtos</a></li>
+          <li><a href="#">Parceiros</a></li>
+          <li><a href="contato.html">Fale Conosco</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contato-section">
+        <h2 class="titulo-destaque centralizado">Fale Conosco</h2>
+        <div class="contato-container">
+          <div class="contato-info">
+            <h3 class="titulo-destaque">Onde estamos</h3>
+            <p>
+              <strong>Endereço:</strong><br />Rua Frei Eugênio, nº 671, sala
+              2<br />95270-000 / Centro – Flores da Cunha/RS
+            </p>
+            <h3>Atendimento</h3>
+            <p>
+              De segunda a sexta<br />Das 7h30 às 12h00 e das 13h30 às 18h00
+            </p>
+            <h3>Contato</h3>
+            <p>
+              E-mail:
+              <a href="mailto:contato@malbec.com.br">contato@malbec.com.br</a
+              ><br />
+              Telefone: <a href="tel:+555432321234">(54) 3232-1234</a><br />
+              WhatsApp:
+              <a href="https://wa.me/5554999999999" target="_blank"
+                >(54) 99999-9999</a
+              >
+            </p>
+          </div>
+          <div class="contato-mapa">
+            <iframe
+              src="https://www.google.com/maps?q=Rua+Frei+Eug%C3%AAnio,+671,+Flores+da+Cunha,+RS&output=embed"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=Rua+Frei+Eug%C3%AAnio,+671,+Flores+da+Cunha,+RS"
+              target="_blank"
+              class="btn-google-maps"
+            >
+              <span class="icon-maps">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48"
+                  width="24"
+                  height="24"
+                >
+                  <g>
+                    <circle cx="24" cy="24" r="20" fill="#4285F4" />
+                    <path
+                      d="M24 12a8 8 0 0 1 8 8c0 5.25-8 16-8 16s-8-10.75-8-16a8 8 0 0 1 8-8zm0 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                      fill="#fff"
+                    />
+                    <circle cx="24" cy="21" r="3" fill="#4285F4" />
+                  </g>
+                </svg>
+              </span>
+              Como chegar
+            </a>
+          </div>
+        </div>
+        <div class="contato-formulario">
+          <div class="mensagem-sucesso" id="mensagemSucesso">
+            Mensagem enviada com sucesso! Em breve entraremos em contato.
+          </div>
+          <h3 class="centralizado">Formulário de Contato</h3>
+          <form id="formContato" autocomplete="off">
+            <label for="tipo">Tipo de atendimento:</label>
+            <select id="tipo" name="tipo" required>
+              <option value="">Selecione</option>
+              <option value="Comercial">Comercial</option>
+              <option value="Suporte">Suporte</option>
+              <option value="Dúvidas">Dúvidas</option>
+              <option value="Outros">Outros</option>
+            </select>
+
+            <label for="nome">Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              placeholder="Seu nome completo"
+            />
+
+            <label for="email">E-mail:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="seu@email.com"
+            />
+
+            <label for="telefone">Telefone:</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(XX) XXXXX-XXXX"
+            />
+
+            <label for="comentarios">Comentários:</label>
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              rows="4"
+              required
+              placeholder="Como podemos ajudar?"
+            ></textarea>
+
+            <button type="submit" class="btn">Enviar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="script/scroll-animation.js"></script>
+    <script>
+      // Feedback visual e mensagem de sucesso fictícia
+      document
+        .getElementById("formContato")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          let ok = true;
+          const form = e.target;
+          // Remove erros antigos
+          form
+            .querySelectorAll(".erro")
+            .forEach((el) => el.classList.remove("erro"));
+          // Validação simples
+          ["tipo", "nome", "email", "comentarios"].forEach((id) => {
+            const el = form.querySelector("#" + id);
+            if (!el.value) {
+              el.classList.add("erro");
+              ok = false;
+            }
+          });
+          if (!ok) return;
+          // Mostra mensagem de sucesso
+          document.getElementById("mensagemSucesso").style.display = "block";
+          form.reset();
+          setTimeout(() => {
+            document.getElementById("mensagemSucesso").style.display = "none";
+          }, 4000);
+        });
+    </script>
+  </body>
+</html>

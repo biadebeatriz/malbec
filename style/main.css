@@ -1,0 +1,379 @@
+:root {
+  --vinho: #741727;
+  --dourado: #f1d987;
+  --preto: #1a1a1a;
+  --branco: #ffffff;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tipografia */
+body {
+  font-family: "Quicksand", sans-serif;
+  font-size: 16px;
+  background-color: var(--branco);
+  color: var(--preto);
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Georgia", serif;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: var(--vinho);
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Georgia", serif;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--branco);
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav a {
+  color: var(--branco);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--dourado);
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  background: url("https://images.unsplash.com/photo-1720365522305-92ad8a7a3475?q=80&w=1170&auto=format&fit=crop")
+    no-repeat right center;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6%;
+  color: var(--branco);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+  margin-left: 5%;
+}
+
+.hero-content h2 {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: var(--branco);
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn {
+  padding: 0.85rem 1.8rem;
+  background-color: var(--vinho);
+  color: var(--branco);
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--dourado);
+  color: var(--preto);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Quem Somos */
+.quem-somos-section {
+  background: linear-gradient(to bottom, #741727 0%, #1a0b0b 100%);
+  padding: 60px 20px;
+}
+
+.quem-somos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  padding-right: 450px;
+}
+
+.quem-somos-texto {
+  color: #f1f1f1;
+  font-size: 15px; /* menor que o original */
+  line-height: 1.6;
+}
+
+.quem-somos-texto p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.titulo-destaque {
+  font-size: 40px;
+  color: var(--dourado);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quem-somos-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+}
+
+.quem-somos-img img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.quem-somos-img img:hover {
+  transform: scale(1.03);
+}
+
+/* Valores */
+.valores-section {
+  background-color: var(--vinho);
+  padding: 60px 20px;
+  color: var(--dourado);
+}
+
+.centralizado {
+  text-align: center;
+}
+
+.valores-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.valor-box {
+  width: 180px;
+  text-align: center;
+  color: var(--branco);
+}
+
+.valor-icone {
+  width: 40px;
+  height: 40px;
+  border: 6px solid var(--dourado);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.valor-box h3 {
+  margin-top: 15px;
+  font-size: 20px;
+  color: var(--dourado);
+}
+
+.valor-box p {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #fefefe;
+}
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.animate-fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container-sobre h2,
+.container-sobre p,
+.container-sobre h3,
+.valores li {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.container-sobre h2 {
+  animation-delay: 0.1s;
+}
+.container-sobre p:nth-of-type(1) {
+  animation-delay: 0.2s;
+}
+.container-sobre p:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+.container-sobre h3 {
+  animation-delay: 0.4s;
+}
+.valores li:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.valores li:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.valores li:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.valores li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.valores li:nth-child(5) {
+  animation-delay: 0.9s;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .header,
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav ul {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+  }
+
+  .quem-somos-container {
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px;
+  }
+
+  .quem-somos-img {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .valores-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .valor-box {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Melhorias formulário de contato */
+.contato-formulario form input,
+.contato-formulario form select,
+.contato-formulario form textarea {
+  padding: 0.7rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  margin-bottom: 8px;
+}
+.contato-formulario form input:focus,
+.contato-formulario form select:focus,
+.contato-formulario form textarea:focus {
+  border-color: var(--vinho);
+  outline: none;
+}
+.contato-formulario form .erro {
+  border-color: #d32f2f;
+  background: #fff0f0;
+}
+.contato-formulario .mensagem-sucesso {
+  background: #e6ffe6;
+  color: #256029;
+  border: 1.5px solid #7ed957;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: none;
+}
+@media (max-width: 600px) {
+  .contato-formulario {
+    padding: 15px !important;
+  }
+  .contato-formulario form input,
+  .contato-formulario form select,
+  .contato-formulario form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.7rem;
+  }
+}

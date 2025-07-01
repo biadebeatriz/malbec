@@ -1,0 +1,160 @@
+/* Seção de contato - layout principal */
+.contato-section {
+  padding: 60px 20px;
+  background: linear-gradient(to bottom, #741727 0%, #1a0b0b 100%);
+}
+
+.contato-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  background: transparent;
+}
+
+.contato-info {
+  flex: 1 1 350px;
+  min-width: 260px;
+  color: #f1f1f1;
+}
+
+.contato-info h3 {
+  color: var(--dourado);
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+.contato-info .titulo-destaque {
+  font-size: 28px;
+  color: var(--dourado);
+  margin-bottom: 20px;
+}
+.contato-info p {
+  margin-bottom: 18px;
+}
+.contato-info a {
+  color: var(--dourado);
+  text-decoration: underline;
+}
+
+.contato-mapa {
+  flex: 1 1 350px;
+  min-width: 260px;
+}
+.contato-mapa iframe {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  height: 260px;
+}
+
+/* Botão Google Maps - Como chegar */
+.btn-google-maps {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #ccc;
+  box-shadow: 0 2px 8px rgba(60, 64, 67, 0.15);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 18px;
+  max-width: 220px;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+}
+.btn-google-maps:hover {
+  box-shadow: 0 4px 16px rgba(60, 64, 67, 0.18);
+  background: #f5f5f5;
+}
+.btn-google-maps svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Formulário de contato */
+.contato-formulario {
+  max-width: 600px;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+}
+.contato-formulario h3 {
+  margin-bottom: 20px;
+  color: var(--vinho);
+}
+.contato-formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contato-formulario form input,
+.contato-formulario form select,
+.contato-formulario form textarea {
+  padding: 0.7rem 1rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  margin-bottom: 8px;
+}
+.contato-formulario form input:focus,
+.contato-formulario form select:focus,
+.contato-formulario form textarea:focus {
+  border-color: var(--vinho);
+  outline: none;
+}
+.contato-formulario form .erro {
+  border-color: #d32f2f;
+  background: #fff0f0;
+}
+.contato-formulario .mensagem-sucesso {
+  background: #e6ffe6;
+  color: #256029;
+  border: 1.5px solid #7ed957;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .contato-container {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .contato-mapa,
+  .contato-info {
+    min-width: 0;
+  }
+}
+@media (max-width: 600px) {
+  .contato-section {
+    padding: 30px 5px;
+  }
+  .contato-formulario {
+    padding: 15px !important;
+  }
+  .contato-formulario form input,
+  .contato-formulario form select,
+  .contato-formulario form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.7rem;
+  }
+  .btn-google-maps {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+}
