@@ -158,3 +158,157 @@
     justify-content: center;
   }
 }
+
+/* Rodapé estruturado */
+.footer {
+  background: #9e3142;
+  color: var(--dourado, #f1d987);
+  margin-top: 40px;
+  font-size: 1.08rem;
+  letter-spacing: 0.1px;
+  position: relative;
+}
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 18px 20px;
+}
+.footer-col {
+  flex: 1 1 0;
+  min-width: 220px;
+}
+.footer-brand h2 {
+  color: var(--branco, #fff);
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+}
+.footer-brand p {
+  color: #f1f1f1;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+.footer-links h3,
+.footer-contact h3 {
+  color: var(--dourado, #f1d987);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.footer-links ul,
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-links ul li a {
+  color: var(--branco, #fff);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links ul li a:hover {
+  color: var(--dourado, #f1d987);
+}
+.footer-contact ul li {
+  margin-bottom: 10px;
+  color: var(--branco, #fff);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-contact ul li a {
+  color: var(--branco, #fff);
+  text-decoration: underline;
+}
+.footer-icon {
+  font-size: 1.2em;
+  margin-right: 2px;
+}
+.footer-social {
+  margin-top: 18px;
+  display: flex;
+  gap: 18px;
+}
+.footer-social-icon {
+  background: var(--dourado, #f1d987);
+  color: var(--vinho, #741727);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.footer-social-icon:hover {
+  background: #fff3b0;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--dourado, #f1d987);
+  text-align: center;
+  padding: 18px 10px 12px 10px;
+  font-size: 1.08rem;
+  margin-top: 10px;
+}
+@media (max-width: 900px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px 10px 10px 10px;
+  }
+  .footer-col {
+    min-width: 0;
+  }
+  .footer-brand h2 {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 600px) {
+  .footer-main {
+    padding: 22px 5px 8px 5px;
+    gap: 22px;
+  }
+  .footer-bottom {
+    font-size: 0.98rem;
+    padding: 12px 5px 8px 5px;
+  }
+}
+
+/* Folhas de videira nas laterais do rodapé */
+.footer-leaf {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.footer-leaf.left {
+  left: 0;
+}
+.footer-leaf.right {
+  right: 0;
+}
+
+/* Cacho de uvas central */
+.footer-grapes {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+  z-index: 3;
+}
+@media (max-width: 900px) {
+  .footer-leaf {
+    display: none;
+  }
+  .footer-grapes {
+    margin-bottom: 6px;
+  }
+}

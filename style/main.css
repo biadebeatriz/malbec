@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=EB+Garamond:wght@700&display=swap");
+
 :root {
   --vinho: #741727;
   --dourado: #f1d987;
@@ -23,8 +25,11 @@ body {
 
 h1,
 h2,
-h3 {
-  font-family: "Georgia", serif;
+h3,
+.footer-brand h2 {
+  font-family: "Cinzel", "EB Garamond", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* Cabeçalho */
