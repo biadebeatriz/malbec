@@ -3,28 +3,136 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Malbec | Produtos Enológicos</title>
+
+    <!-- SEO Meta Tags -->
+    <title>
+      Malbec | Produtos Enológicos - Insumos e Equipamentos Vitivinícolas
+    </title>
+    <meta
+      name="description"
+      content="Especialistas em produtos enológicos na Serra Gaúcha. Insumos, equipamentos e soluções completas para vinicultura. Flores da Cunha/RS."
+    />
+    <meta
+      name="keywords"
+      content="produtos enológicos, insumos vinicultura, equipamentos vinho, malbec, flores da cunha, serra gaúcha, viticultura"
+    />
+    <meta name="author" content="Malbec" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://malbec.vercel.app/" />
+    <meta
+      property="og:title"
+      content="Malbec | Produtos Enológicos - Serra Gaúcha"
+    />
+    <meta
+      property="og:description"
+      content="Especialistas em produtos enológicos na Serra Gaúcha. Insumos, equipamentos e soluções completas para vinicultura."
+    />
+    <meta
+      property="og:image"
+      content="https://malbec.vercel.app/public/assets/img/Malbec.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://malbec.vercel.app/" />
+    <meta
+      property="twitter:title"
+      content="Malbec | Produtos Enológicos - Serra Gaúcha"
+    />
+    <meta
+      property="twitter:description"
+      content="Especialistas em produtos enológicos na Serra Gaúcha. Insumos, equipamentos e soluções completas para vinicultura."
+    />
+    <meta
+      property="twitter:image"
+      content="https://malbec.vercel.app/public/assets/img/Malbec.png"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://malbec.vercel.app/" />
+
+    <!-- Sitemap -->
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="https://malbec.vercel.app/sitemap.xml"
+    />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="style/main.css" as="style" />
+    <link rel="preload" href="public/assets/img/Malbec.png" as="image" />
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style/main.css" />
     <link
       rel="icon"
       type="image/x-icon"
       href="public/assets/img/glass-with-wine.ico"
     />
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Malbec",
+        "description": "Especializada em divulgação e venda de produtos enológicos, oferecendo soluções completas para o setor vitivinícola.",
+        "url": "https://malbec.vercel.app",
+        "logo": "https://malbec.vercel.app/public/assets/img/Malbec.png",
+        "image": "https://malbec.vercel.app/public/assets/img/Malbec.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Frei Eugênio, nº 671, sala 2",
+          "addressLocality": "Flores da Cunha",
+          "addressRegion": "RS",
+          "postalCode": "95270-000",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-29.0289",
+          "longitude": "-51.3978"
+        },
+        "telephone": "+555432321234",
+        "email": "contato@malbec.com.br",
+        "openingHours": "Mo-Fr 07:30-12:00,13:30-18:00",
+        "priceRange": "$$",
+        "sameAs": ["https://www.instagram.com/malbec"]
+      }
+    </script>
   </head>
   <body>
     <!-- Cabeçalho -->
     <header class="header">
-      <img
-        src="public/assets/img/Malbec.png"
-        alt="Malbec"
-        class="logo"
-        style="height: 70px; width: auto"
-      />
-      <nav class="nav">
+      <a href="index.html" class="logo-link">
+        <img
+          src="public/assets/img/Malbec.png"
+          alt="Malbec"
+          class="logo"
+          style="height: 70px; width: auto"
+        />
+      </a>
+
+      <!-- Botão do menu mobile -->
+      <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        aria-label="Abrir menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" id="nav">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="quem-somos.html">Sobre a Empresa</a></li>
-          <li><a href="#">Produtos</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
           <li><a href="#">Parceiros</a></li>
           <li><a href="contato.html">Fale Conosco</a></li>
         </ul>
@@ -38,6 +146,8 @@
           <img
             src="https://images.unsplash.com/photo-1720365522305-92ad8a7a3475?q=80&w=1170&auto=format&fit=crop"
             alt="Taça de vinho"
+            loading="lazy"
+            decoding="async"
           />
           <div class="carousel-content">
             <h2>Especialistas em Produtos Enológicos</h2>
@@ -50,6 +160,8 @@
           <img
             src="https://images.unsplash.com/photo-1556442281-77c90134c61f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Equipamentos enológicos"
+            loading="lazy"
+            decoding="async"
           />
           <div class="carousel-content">
             <h2>Insumos e Equipamentos de Qualidade</h2>
@@ -62,6 +174,8 @@
           <img
             src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Atendimento técnico"
+            loading="lazy"
+            decoding="async"
           />
           <div class="carousel-content">
             <h2>Atendimento Técnico Personalizado</h2>
@@ -74,6 +188,8 @@
           <img
             src="https://images.unsplash.com/photo-1592908659732-bd3147d607e8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Serra Gaúcha"
+            loading="lazy"
+            decoding="async"
           />
           <div class="carousel-content">
             <h2>Sua Parceira na Serra Gaúcha</h2>
@@ -86,6 +202,8 @@
           <img
             src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Tudo para seu vinho"
+            loading="lazy"
+            decoding="async"
           />
           <div class="carousel-content">
             <h2>Tudo que seu vinho precisa</h2>
@@ -109,14 +227,19 @@
       </div>
     </section>
 
-    <script src="/scripts/scroll-animation.js"></script>
+    <script src="script/scroll-animation.js"></script>
     <script>
-      // Carrossel JavaScript
+      // Carrossel JavaScript - Performance otimizada
       let currentSlide = 0;
-      const slides = document.querySelectorAll(".carousel-slide");
-      const indicators = document.querySelectorAll(".indicator");
+      let slides, indicators;
       let autoPlayInterval;
       let isPaused = false;
+
+      // Cache dos elementos DOM para melhor performance
+      function initializeCarousel() {
+        slides = document.querySelectorAll(".carousel-slide");
+        indicators = document.querySelectorAll(".indicator");
+      }
 
       function showSlide(n) {
         // Remove todas as classes
@@ -174,14 +297,79 @@
         autoPlayInterval = setInterval(autoPlay, 4000);
       }
 
-      // Inicializa o carrossel
-      showSlide(0);
-      resetAutoPlay();
+      // Inicializa o carrossel quando o DOM estiver pronto
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeCarousel();
+        showSlide(0);
+        resetAutoPlay();
 
-      // Pausa no hover
-      const carousel = document.querySelector(".carousel");
-      carousel.addEventListener("mouseenter", pauseAutoPlay);
-      carousel.addEventListener("mouseleave", resumeAutoPlay);
+        // Pausa no hover
+        const carousel = document.querySelector(".carousel");
+        if (carousel) {
+          carousel.addEventListener("mouseenter", pauseAutoPlay);
+          carousel.addEventListener("mouseleave", resumeAutoPlay);
+        }
+
+        // Menu mobile
+        initializeMobileMenu();
+      });
+
+      // Função para inicializar o menu mobile
+      function initializeMobileMenu() {
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const nav = document.getElementById("nav");
+        const body = document.body;
+
+        // Criar overlay
+        const overlay = document.createElement("div");
+        overlay.className = "nav-overlay";
+        body.appendChild(overlay);
+
+        // Toggle do menu
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenuBtn.classList.toggle("active");
+          nav.classList.toggle("active");
+          overlay.classList.toggle("active");
+          document.querySelector(".header").classList.toggle("menu-open");
+          body.style.overflow = nav.classList.contains("active")
+            ? "hidden"
+            : "";
+        });
+
+        // Fechar menu ao clicar no overlay
+        overlay.addEventListener("click", function () {
+          mobileMenuBtn.classList.remove("active");
+          nav.classList.remove("active");
+          overlay.classList.remove("active");
+          document.querySelector(".header").classList.remove("menu-open");
+          body.style.overflow = "";
+        });
+
+        // Fechar menu ao clicar em um link
+        const navLinks = nav.querySelectorAll("a");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenuBtn.classList.remove("active");
+            nav.classList.remove("active");
+            overlay.classList.remove("active");
+            document.querySelector(".header").classList.remove("menu-open");
+            body.style.overflow = "";
+            // Scroll para o topo da página após navegação
+            window.scrollTo(0, 0);
+          });
+        });
+
+        // Fechar menu ao pressionar ESC
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && nav.classList.contains("active")) {
+            mobileMenuBtn.classList.remove("active");
+            nav.classList.remove("active");
+            overlay.classList.remove("active");
+            document.querySelector(".header").classList.remove("menu-open");
+            body.style.overflow = "";
+          }
+        });
+      }
     </script>
   </body>
 </html>
