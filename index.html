@@ -18,7 +18,7 @@
         src="public/assets/img/Malbec.png"
         alt="Malbec"
         class="logo"
-        style="height: 100px; width: auto"
+        style="height: 70px; width: auto"
       />
       <nav class="nav">
         <ul>
@@ -31,14 +31,157 @@
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Divulgação e Venda de<br />Produtos Enológicos</h2>
-        <a href="quem-somos.html" class="btn">Saiba Mais</a>
+    <!-- Carrossel Hero -->
+    <section class="carousel-section">
+      <div class="carousel">
+        <div class="carousel-slide active">
+          <img
+            src="https://images.unsplash.com/photo-1720365522305-92ad8a7a3475?q=80&w=1170&auto=format&fit=crop"
+            alt="Taça de vinho"
+          />
+          <div class="carousel-content">
+            <h2>Especialistas em Produtos Enológicos</h2>
+            <p>Soluções completas para o setor vitivinícola</p>
+            <a href="quem-somos.html" class="btn">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1556442281-77c90134c61f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Equipamentos enológicos"
+          />
+          <div class="carousel-content">
+            <h2>Insumos e Equipamentos de Qualidade</h2>
+            <p>Desde a produção até o envase</p>
+            <a href="#" class="btn">Nossos Produtos</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Atendimento técnico"
+          />
+          <div class="carousel-content">
+            <h2>Atendimento Técnico Personalizado</h2>
+            <p>Suporte especializado para seu negócio</p>
+            <a href="contato.html" class="btn">Fale Conosco</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1592908659732-bd3147d607e8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Serra Gaúcha"
+          />
+          <div class="carousel-content">
+            <h2>Sua Parceira na Serra Gaúcha</h2>
+            <p>Flores da Cunha - Coração do vinho brasileiro</p>
+            <a href="quem-somos.html" class="btn">Conheça Nossa História</a>
+          </div>
+        </div>
+
+        <div class="carousel-slide">
+          <img
+            src="https://images.unsplash.com/photo-1528823872057-9c018a7a7553?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Tudo para seu vinho"
+          />
+          <div class="carousel-content">
+            <h2>Tudo que seu vinho precisa</h2>
+            <p>Em um só lugar</p>
+            <a href="#" class="btn">Descubra Mais</a>
+          </div>
+        </div>
+
+        <!-- Controles do carrossel -->
+        <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+
+        <!-- Indicadores -->
+        <div class="carousel-indicators">
+          <span class="indicator active" onclick="goToSlide(1)"></span>
+          <span class="indicator" onclick="goToSlide(2)"></span>
+          <span class="indicator" onclick="goToSlide(3)"></span>
+          <span class="indicator" onclick="goToSlide(4)"></span>
+          <span class="indicator" onclick="goToSlide(5)"></span>
+        </div>
       </div>
     </section>
 
     <script src="/scripts/scroll-animation.js"></script>
+    <script>
+      // Carrossel JavaScript
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".carousel-slide");
+      const indicators = document.querySelectorAll(".indicator");
+      let autoPlayInterval;
+      let isPaused = false;
+
+      function showSlide(n) {
+        // Remove todas as classes
+        slides.forEach((slide) => {
+          slide.classList.remove("active", "prev");
+        });
+        indicators.forEach((indicator) => indicator.classList.remove("active"));
+
+        // Calcula o índice correto
+        currentSlide = (n + slides.length) % slides.length;
+
+        // Adiciona active ao slide atual
+        slides[currentSlide].classList.add("active");
+        indicators[currentSlide].classList.add("active");
+
+        // Adiciona prev ao slide anterior
+        const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
+        slides[prevSlide].classList.add("prev");
+      }
+
+      function changeSlide(direction) {
+        showSlide(currentSlide + direction);
+        // Reinicia o timer após mudança manual
+        resetAutoPlay();
+      }
+
+      function goToSlide(n) {
+        showSlide(n - 1);
+        // Reinicia o timer após mudança manual
+        resetAutoPlay();
+      }
+
+      function autoPlay() {
+        if (!isPaused) {
+          changeSlide(1);
+        }
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(autoPlay, 4000);
+      }
+
+      function pauseAutoPlay() {
+        isPaused = true;
+        // Muda para tempo mais lento quando hover
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(autoPlay, 7000);
+      }
+
+      function resumeAutoPlay() {
+        isPaused = false;
+        // Volta para tempo normal quando não há hover
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(autoPlay, 4000);
+      }
+
+      // Inicializa o carrossel
+      showSlide(0);
+      resetAutoPlay();
+
+      // Pausa no hover
+      const carousel = document.querySelector(".carousel");
+      carousel.addEventListener("mouseenter", pauseAutoPlay);
+      carousel.addEventListener("mouseleave", resumeAutoPlay);
+    </script>
   </body>
 </html>
