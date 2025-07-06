@@ -133,7 +133,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="quem-somos.html">Sobre a Empresa</a></li>
           <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="#">Parceiros</a></li>
+          <li><a href="parceiros.html">Parceiros</a></li>
           <li><a href="contato.html">Fale Conosco</a></li>
         </ul>
       </nav>
@@ -228,148 +228,7 @@
     </section>
 
     <script src="script/scroll-animation.js"></script>
-    <script>
-      // Carrossel JavaScript - Performance otimizada
-      let currentSlide = 0;
-      let slides, indicators;
-      let autoPlayInterval;
-      let isPaused = false;
-
-      // Cache dos elementos DOM para melhor performance
-      function initializeCarousel() {
-        slides = document.querySelectorAll(".carousel-slide");
-        indicators = document.querySelectorAll(".indicator");
-      }
-
-      function showSlide(n) {
-        // Remove todas as classes
-        slides.forEach((slide) => {
-          slide.classList.remove("active", "prev");
-        });
-        indicators.forEach((indicator) => indicator.classList.remove("active"));
-
-        // Calcula o índice correto
-        currentSlide = (n + slides.length) % slides.length;
-
-        // Adiciona active ao slide atual
-        slides[currentSlide].classList.add("active");
-        indicators[currentSlide].classList.add("active");
-
-        // Adiciona prev ao slide anterior
-        const prevSlide = (currentSlide - 1 + slides.length) % slides.length;
-        slides[prevSlide].classList.add("prev");
-      }
-
-      function changeSlide(direction) {
-        showSlide(currentSlide + direction);
-        // Reinicia o timer após mudança manual
-        resetAutoPlay();
-      }
-
-      function goToSlide(n) {
-        showSlide(n - 1);
-        // Reinicia o timer após mudança manual
-        resetAutoPlay();
-      }
-
-      function autoPlay() {
-        if (!isPaused) {
-          changeSlide(1);
-        }
-      }
-
-      function resetAutoPlay() {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = setInterval(autoPlay, 4000);
-      }
-
-      function pauseAutoPlay() {
-        isPaused = true;
-        // Muda para tempo mais lento quando hover
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = setInterval(autoPlay, 7000);
-      }
-
-      function resumeAutoPlay() {
-        isPaused = false;
-        // Volta para tempo normal quando não há hover
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = setInterval(autoPlay, 4000);
-      }
-
-      // Inicializa o carrossel quando o DOM estiver pronto
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeCarousel();
-        showSlide(0);
-        resetAutoPlay();
-
-        // Pausa no hover
-        const carousel = document.querySelector(".carousel");
-        if (carousel) {
-          carousel.addEventListener("mouseenter", pauseAutoPlay);
-          carousel.addEventListener("mouseleave", resumeAutoPlay);
-        }
-
-        // Menu mobile
-        initializeMobileMenu();
-      });
-
-      // Função para inicializar o menu mobile
-      function initializeMobileMenu() {
-        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-        const nav = document.getElementById("nav");
-        const body = document.body;
-
-        // Criar overlay
-        const overlay = document.createElement("div");
-        overlay.className = "nav-overlay";
-        body.appendChild(overlay);
-
-        // Toggle do menu
-        mobileMenuBtn.addEventListener("click", function () {
-          mobileMenuBtn.classList.toggle("active");
-          nav.classList.toggle("active");
-          overlay.classList.toggle("active");
-          document.querySelector(".header").classList.toggle("menu-open");
-          body.style.overflow = nav.classList.contains("active")
-            ? "hidden"
-            : "";
-        });
-
-        // Fechar menu ao clicar no overlay
-        overlay.addEventListener("click", function () {
-          mobileMenuBtn.classList.remove("active");
-          nav.classList.remove("active");
-          overlay.classList.remove("active");
-          document.querySelector(".header").classList.remove("menu-open");
-          body.style.overflow = "";
-        });
-
-        // Fechar menu ao clicar em um link
-        const navLinks = nav.querySelectorAll("a");
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            mobileMenuBtn.classList.remove("active");
-            nav.classList.remove("active");
-            overlay.classList.remove("active");
-            document.querySelector(".header").classList.remove("menu-open");
-            body.style.overflow = "";
-            // Scroll para o topo da página após navegação
-            window.scrollTo(0, 0);
-          });
-        });
-
-        // Fechar menu ao pressionar ESC
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && nav.classList.contains("active")) {
-            mobileMenuBtn.classList.remove("active");
-            nav.classList.remove("active");
-            overlay.classList.remove("active");
-            document.querySelector(".header").classList.remove("menu-open");
-            body.style.overflow = "";
-          }
-        });
-      }
-    </script>
+    <script src="script/carousel.js"></script>
+    <script src="script/mobile-menu.js"></script>
   </body>
 </html>

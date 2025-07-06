@@ -92,7 +92,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="quem-somos.html">Sobre a Empresa</a></li>
           <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="#">Parceiros</a></li>
+          <li><a href="parceiros.html">Parceiros</a></li>
           <li><a href="contato.html">Fale Conosco</a></li>
         </ul>
       </nav>
@@ -119,8 +119,8 @@
               ><br />
               Telefone: <a href="tel:+555432321234">(54) 3232-1234</a><br />
               WhatsApp:
-              <a href="https://wa.me/5554999999999" target="_blank"
-                >(54) 99999-9999</a
+              <a href="https://wa.me/5554999255769" target="_blank"
+                >(54) 99925-5769</a
               >
             </p>
           </div>
@@ -228,7 +228,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="quem-somos.html">Sobre a Empresa</a></li>
             <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="#">Parceiros</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
             <li><a href="contato.html">Fale Conosco</a></li>
           </ul>
         </div>
@@ -265,7 +265,7 @@
                   />
                 </svg>
               </span>
-              (54) 99999-9999
+              (54) 99925-5769
             </li>
             <li>
               <span class="footer-icon">
@@ -293,8 +293,16 @@
                 height="24"
               />
             </a>
+            <a href="#" class="footer-social-icon">
+              <img
+                src="public/assets/img/facebook.svg"
+                alt="Facebook"
+                width="24"
+                height="24"
+              />
+            </a>
             <a
-              href="https://wa.me/5554999999999"
+              href="https://wa.me/5554999255769"
               target="_blank"
               class="footer-social-icon"
             >
@@ -309,102 +317,19 @@
         </div>
       </div>
       <div class="footer-bottom">
-        &copy; 2024 Malbec - Todos os direitos reservados. | Desenvolvido com
-        paixão pelo vinho
+        <div class="footer-company-info">
+          <p>Nome empresarial: Malbec Insumos Enológicos</p>
+          <p>CNPJ: 46.266.771/0001-26</p>
+        </div>
+        <div class="footer-copyright">
+          &copy; 2024 Malbec - Todos os direitos reservados. | Desenvolvido com
+          paixão pelo vinho
+        </div>
       </div>
     </footer>
 
     <script src="script/scroll-animation.js"></script>
-    <script>
-      // Menu mobile
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeMobileMenu();
-      });
-
-      // Função para inicializar o menu mobile
-      function initializeMobileMenu() {
-        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-        const nav = document.getElementById("nav");
-        const body = document.body;
-
-        // Criar overlay
-        const overlay = document.createElement("div");
-        overlay.className = "nav-overlay";
-        body.appendChild(overlay);
-
-        // Toggle do menu
-        mobileMenuBtn.addEventListener("click", function () {
-          mobileMenuBtn.classList.toggle("active");
-          nav.classList.toggle("active");
-          overlay.classList.toggle("active");
-          document.querySelector(".header").classList.toggle("menu-open");
-          body.style.overflow = nav.classList.contains("active")
-            ? "hidden"
-            : "";
-        });
-
-        // Fechar menu ao clicar no overlay
-        overlay.addEventListener("click", function () {
-          mobileMenuBtn.classList.remove("active");
-          nav.classList.remove("active");
-          overlay.classList.remove("active");
-          document.querySelector(".header").classList.remove("menu-open");
-          body.style.overflow = "";
-        });
-
-        // Fechar menu ao clicar em um link
-        const navLinks = nav.querySelectorAll("a");
-        navLinks.forEach((link) => {
-          link.addEventListener("click", function () {
-            mobileMenuBtn.classList.remove("active");
-            nav.classList.remove("active");
-            overlay.classList.remove("active");
-            document.querySelector(".header").classList.remove("menu-open");
-            body.style.overflow = "";
-            // Scroll para o topo da página após navegação
-            window.scrollTo(0, 0);
-          });
-        });
-
-        // Fechar menu ao pressionar ESC
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && nav.classList.contains("active")) {
-            mobileMenuBtn.classList.remove("active");
-            nav.classList.remove("active");
-            overlay.classList.remove("active");
-            document.querySelector(".header").classList.remove("menu-open");
-            body.style.overflow = "";
-          }
-        });
-      }
-
-      // Feedback visual e mensagem de sucesso fictícia
-      document
-        .getElementById("formContato")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          let ok = true;
-          const form = e.target;
-          // Remove erros antigos
-          form
-            .querySelectorAll(".erro")
-            .forEach((el) => el.classList.remove("erro"));
-          // Validação simples
-          ["tipo", "nome", "email", "comentarios"].forEach((id) => {
-            const el = form.querySelector("#" + id);
-            if (!el.value) {
-              el.classList.add("erro");
-              ok = false;
-            }
-          });
-          if (!ok) return;
-          // Mostra mensagem de sucesso
-          document.getElementById("mensagemSucesso").style.display = "block";
-          form.reset();
-          setTimeout(() => {
-            document.getElementById("mensagemSucesso").style.display = "none";
-          }, 4000);
-        });
-    </script>
+    <script src="script/mobile-menu.js"></script>
+    <script src="script/form-validation.js"></script>
   </body>
 </html>

@@ -261,6 +261,22 @@
   font-size: 1.08rem;
   margin-top: 8px;
 }
+
+.footer-company-info {
+  margin-bottom: 10px;
+}
+
+.footer-company-info p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #f1f1f1;
+  opacity: 0.9;
+}
+
+.footer-copyright {
+  font-size: 0.95rem;
+  color: #f1f1f1;
+}
 @media (max-width: 900px) {
   .footer-main {
     flex-direction: column;
